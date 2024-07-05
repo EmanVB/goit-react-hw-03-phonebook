@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import { ContactForm } from './ContactForm/ContactForm';
+import { Filter } from './Filter/Filter';
+import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
@@ -36,4 +39,21 @@ export class App extends Component {
       contact.name.toLowerCase().includes(filterLowerCase)
     );
   };
+
+  render() {
+    const { contacts, filter } = this.state;
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm addContact={this.addContact} contact={contacts} />
+
+        <h2>Contacts</h2>
+        <Filter filter={filter} setFilter={this.setFilter} />
+        <ContactList
+          filterContact={this.filterContact}
+          deleteContact={this.deleteContact}
+        />
+      </div>
+    );
+  }
 }
