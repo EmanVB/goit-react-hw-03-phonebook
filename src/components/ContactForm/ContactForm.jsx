@@ -24,7 +24,7 @@ export class ContactForm extends Component {
       name: e.target.value,
     });
 
-  handlerNumberChange = e =>
+  handleNumberChange = e =>
     this.setState({
       number: e.target.value,
     });
@@ -84,7 +84,7 @@ export class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             value={number}
-            onChange={this.handlerNumberChange}
+            onChange={this.handleNumberChange}
           />
         </label>
 
