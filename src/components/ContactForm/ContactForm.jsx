@@ -19,27 +19,28 @@ export class ContactForm extends Component {
     number: '',
   };
 
-  handleNameChange = e =>
+  handleNameChange = e => {
     this.setState({
       name: e.target.value,
     });
-
-  handleNumberChange = e =>
+  };
+  handleNumberChange = e => {
     this.setState({
       number: e.target.value,
     });
+  };
 
   handleSubmit = e => {
     e.preventDefault();
     const { name, number } = this.state;
     const { addContact, contacts } = this.props;
-    if (name.trim() === '' || number.trim() === '') {
-      return;
-    }
-
     const existingContact = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
+
+    if (name.trim() === '' || number.trim() === '') {
+      return;
+    }
 
     if (existingContact) {
       alert(`${name} is already in contacts!`);
@@ -48,8 +49,8 @@ export class ContactForm extends Component {
 
     addContact({
       id: nanoid(),
-      name: name.trim,
-      number: number.trim,
+      name: name.trim(),
+      number: number.trim(),
     });
 
     this.setState({
